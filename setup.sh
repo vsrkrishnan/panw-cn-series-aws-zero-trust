@@ -121,6 +121,10 @@ function deploy_cnseries_lab() {
         exit 1
     fi
 
+    ####
+    #### Commenting all the below lines because there is a manual step that needs to be performed in the Panorama 
+    #### appliance before we can proceed to the below steps.
+    ####
     # Deploying CN-Series firewalls
     # echo -e "\nDeploying CN-Series firewalls"
     # cd "${HOME}/panw-cn-series-aws-zero-trust/terraform/cnseries/cn-series"
@@ -142,9 +146,9 @@ function deploy_cnseries_lab() {
     # fi
 
     # Getting the credentials json file for configuring the cluster on Panorama.
-    echo -e "\nGetting the credentials json file for configuring the cluster on Panorama."
-    MY_TOKEN=`kubectl get serviceaccounts pan-plugin-user -n kube-system -o jsonpath='{.secrets[0].name}'`
-    kubectl get secret $MY_TOKEN -n kube-system -o json > ~/pan-plugin-user.json
+    # echo -e "\nGetting the credentials json file for configuring the cluster on Panorama."
+    # MY_TOKEN=`kubectl get serviceaccounts pan-plugin-user -n kube-system -o jsonpath='{.secrets[0].name}'`
+    # kubectl get secret $MY_TOKEN -n kube-system -o json > ~/pan-plugin-user.json
 }
 
 install_prerequisites
