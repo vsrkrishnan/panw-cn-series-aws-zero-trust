@@ -55,7 +55,7 @@ function install_aws_iam_authenticator() {
 }
 
 function deploy_panorama() {
-    cd "${HOME}/panw-zero-trust-aws/terraform/panorama"
+    cd "${HOME}/panw-cn-series-aws-zero-trust/terraform/panorama"
 
     # Initialize terraform
     echo -e "\nInitializing directory for lab resource deployment"
@@ -74,7 +74,7 @@ function deploy_panorama() {
 }
 
 function get_panorama_ip() {
-    cd "${HOME}/panw-zero-trust-aws/terraform/panorama"
+    cd "${HOME}/panw-cn-series-aws-zero-trust/terraform/panorama"
 
     PANORAMA_IP=$(terraform output PANORAMA_IP_ADDRESS | sed -e 's/^"//' -e 's/"$//')
     echo $PANORAMA_IP
@@ -88,7 +88,7 @@ function deploy_cnseries_lab() {
     NEW_PANORAMA_IP=$(get_panorama_ip)
 
     # Assuming that this setup script is being run from the cloned github repo, changing the current working directory to one from where Terraform will deploy the lab resources.
-    cd "${HOME}/panw-zero-trust-aws/terraform/cnseries"
+    cd "${HOME}/panw-cn-series-aws-zero-trust/terraform/cnseries"
 
     # Initialize terraform
     echo -e "\nInitializing directory for lab resource deployment"
@@ -123,7 +123,7 @@ function deploy_cnseries_lab() {
 
     # Deploying CN-Series firewalls
     # echo -e "\nDeploying CN-Series firewalls"
-    # cd "${HOME}/panw-zero-trust-aws/terraform/cnseries/cn-series"
+    # cd "${HOME}/panw-cn-series-aws-zero-trust/terraform/cnseries/cn-series"
     # /bin/bash ./install-cn.sh
 
     # if [ $? -ne 0 ]; then
@@ -133,7 +133,7 @@ function deploy_cnseries_lab() {
 
     # Running the demo application for the CN-Series to secure.
     # echo -e "\nRunning the demo application for the CN-Series to secure"
-    # cd "${HOME}/panw-zero-trust-aws/terraform/cnseries"
+    # cd "${HOME}/panw-cn-series-aws-zero-trust/terraform/cnseries"
     # eval $KUBECTL_DEMO_APP_DEPLOYMENT_COMMAND
 
     # if [ $? -ne 0 ]; then
