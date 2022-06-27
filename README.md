@@ -163,7 +163,7 @@ It takes around a minute for cloudshell to launch and to get the prompt as shown
 25. After the cloudshell is launched, we will start by cloning the following github repository:
 
 ```
-git clone https&#x3A;//github.com/vsrkrishnan/panw-cn-series-aws-zero-trust.git
+git clone https://github.com/vsrkrishnan/panw-cn-series-aws-zero-trust.git
 ```
 
 ![](https://lh5.googleusercontent.com/p6GGG8Y5xKwZzz-QCqWC2heq0HJzDO5fw1aGSgWHmGR9yW4SKFYQ1cGe4-LJUvRaG_Qx6r9QTjXh6VBLQanDrqOfiJmUgKiLTm_G6Mse_0DsKRAM5olyIZwPd0_PlnIbtaNSOlnX_5-8qkUjIA)
