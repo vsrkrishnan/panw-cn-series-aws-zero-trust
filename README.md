@@ -186,7 +186,7 @@ It will take sometime (**~10 mins**) to deploy all the lab components. Status wi
 ![](https://lh4.googleusercontent.com/5pn1Xs_pyrkuEHwC9d-FiY4t_Fy190qp4MievBYVVvJsAN2SCHFZXrgb56yHPPSzw2BFoMKNbdJ74fiVOCOJuFiF74aMrif8mP9vTgCoSzJoFu0umD36Q9xFDQunuMXUKHfsTYlqktqUBST49Q)
 **Figure:** Completion message of the Lab Setup script
 
-28. Make a note of the “eks_cluster_endpoint” value as shown in the figure above. This will be used for configuring the Kubernetes Plugin on Panorama at a later step.
+28. Make a note of the “**eks_cluster_endpoint**” value as shown in the figure above. This will be used for configuring the Kubernetes Plugin on Panorama at a later step.
 29. Review the deployed lab environment with the topology diagram shown below.
 
 ![](https://lh5.googleusercontent.com/eN1DkPygZKYYKVoJCwI2PKoSqVCwX4DLmv4-8X-zxcokyOvCeFUPmnkL8bD3E4-g4kTmV8yzmCRRoCf0RvHkRKbsQzOWIZQeX-2gpXj3YhoSMxoxIHezsgxHYKsp8yy9CnGYM3Jq2KPKVpqLSZE)
@@ -283,7 +283,7 @@ kubectl get pods -n sample-app
 
 ![](https://lh4.googleusercontent.com/Jwr4kQBFnXi84CCbOOLTbNkaCDHogOfudxNzUTMfQzfKm8kYB4gVFsJSM52eVxZp_uKzTQe3pUdTgeiikSmSyCyg6tZNAU8_tOetUC8Zph0sPuln7hjakoPvCW9YQSl9lCkdnCJG4pfYN6MiRw)
 
-40. As seen on the images above, under the READY column, all pods should be **1/1**, and under the STATUS column, all pods should be **Running**.
+40. As seen on the images above, under the READY column, all pods should be **1/1**, and under the STATUS column, all pods should be **Running**. This can take from 5-10 mins.
 41. Once all the pods are up and running, navigate to the tab with the Panorama console and on the console, navigate to Panorama > Managed Devices > Summary. Note that the CN-Series firewalls were added through bootstrapping.
 
 ![](https://lh5.googleusercontent.com/LsM4-vAARHXoO_s22AyEU-0ROnZcQiQvM6X7AZCNYCemcvbJSlQzA4wKD3Kxqtlftj6L8cxiuuNCw7mKvcD1PLaQkTRj05BJImrlznKCbptQcyO5GmV4ga60-U5WqQRrm-TV7jBhAEtOyNqXyw)
@@ -293,7 +293,7 @@ kubectl get pods -n sample-app
 42. On the CloudShell tab, run the below commands.
 
 ```
-MY_TOKEN=\`kubectl get serviceaccounts pan-plugin-user -n kube-system -o jsonpath='{.secrets\[0].name}'\`
+MY_TOKEN=`kubectl get serviceaccounts pan-plugin-user -n kube-system -o jsonpath='{.secrets\[0].name}'`
 ```
 
 ```
