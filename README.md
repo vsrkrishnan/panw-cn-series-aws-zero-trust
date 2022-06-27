@@ -293,7 +293,7 @@ kubectl get pods -n sample-app
 42. On the CloudShell tab, run the below commands.
 
 ```
-MY_TOKEN=`kubectl get serviceaccounts pan-plugin-user -n kube-system -o jsonpath='{.secrets\[0].name}'`
+MY_TOKEN=`kubectl get serviceaccounts pan-plugin-user -n kube-system -o jsonpath='{.secrets[0].name}'`
 ```
 
 ```
@@ -317,37 +317,33 @@ This will create a credentials file to be used while adding the Kubernetes clust
 ![](https://lh4.googleusercontent.com/EaoMdSMHi9F3ejyOpibCDSCax3BrRtRVf6JH1UPNQ_UiZClxgi8bcMiikppNDOL-hMycHcVqoLIWBtQP4zxMEFG8kiHNbjav6f65FJrwC8hb7UXfeokVgbzFw9ejUylQbsiSuizRNYbd-6EgvQ)
 
 46. Enter the fields as given below.
-
-    1. **Name** – k8s_cluster
-    2. **API Server Address** – &lt;eks_cluster_endpoint> value noted post the terraform deployment.
-    3. **Type** – EKS
-    4. **Credentials** – Click on Credentials. Browse to the Downloads folder that contains the pan-plugin-user.json file that was downloaded in the previous step.
-    5. **Label Filter** – “Select All Labels”.
-    6. Click on **Validate,** to ensure that things are in order.
-    7. Click on **OK**.
+    - **Name** – k8s_cluster
+    - **API Server Address** – &lt;eks_cluster_endpoint> value noted post the terraform deployment.
+    - **Type** – EKS
+    - **Credentials** – Click on Credentials. Browse to the Downloads folder that contains the pan-plugin-user.json file that was downloaded in the previous step.
+    - **Label Filter** – “Select All Labels”.
+    - Click on **Validate,** to ensure that things are in order.
+    - Click on **OK**.
 
 ![](https://lh4.googleusercontent.com/lEgxlm8dmSPU49whRbaoWe0LGQmdqNks-GYHAddwrB8J__0xgHCpRt6Z1LtZxfE-0LxkyXFo3rLGB2FQ4kBSTdn6B1vSuBKgVgLGjwNf21-dkgIeOpQ4D0_qahG3KKbFtw5T3XcZmCIsqPYPQQ)
 
 47. Configure ‘Monitoring’ by selecting the **Notify Group **tab, click **Add** to add Notify Group.  Setting up a Notify Group will allow you to segment which Device Group receives notification for changes to a given cluster.  This allows for very granular rules.
+    - **Name**: k8s-notify-group
+    - **Enable sharing internal tags with Device Groups**: Check
+    - **Select Device Group**: cnseries
+    - Click **OK**.
 
 ![](https://lh6.googleusercontent.com/AjrlgrugqGkDMN4CggC3CuW-2bhyko0nZK5Gb4kTprbN9HbLOwvV9v7scFsGwkit8YQeJNtsN-ynqQIeZwx4JrTVaU93-oE0O-TZTFTow00sRG-nrzUVKHV6eHKx3jq8OEL4lYzjO0hJvnDtLQ)
-
-1. **Name**: k8s-notify-group
-2. **Enable sharing internal tags with Device Groups**: Check
-3. **Select Device Group**: cnseries
-4. Click **OK**.
 
 ![](https://lh3.googleusercontent.com/Uaelp_Jf3bLYM4i0kGjeXdfStgzMriU59n5kZbKhnIL5fl_mK6DeKxLZkGhELPZepUzDPvzrzMWLP8U8eFxUNIKhqogNL5-oJeY3v-VqVtAWLY13q8zCJcvfM2mJAqrmSOHw02TmFQjFBTqKzQ)
 
 48.   Now configure the Monitoring Definition and specify the cluster you created in the previous step. Navigate to Kubernetes > Monitoring Definition > Add. Fill out the Monitoring Definition form:
-
-- **Name**: k8s-monitoring-definition
-- **Description**: k8s-monitoring-definition
-- **Cluster**: k8s-cluster
-- **Notify Group**: k8s-notify-group
-- **Enable**: Check
-
-Click **OK**.
+    - **Name**: k8s-monitoring-definition
+    - **Description**: k8s-monitoring-definition
+    - **Cluster**: k8s-cluster
+    - **Notify Group**: k8s-notify-group
+    - **Enable**: Check
+    - Click **OK**.
 
 ![](https://lh6.googleusercontent.com/B-fN-9EZ7gFiysMXPE2rwoDgb4TLsaXTnsi_aQQU5LzQlNLLsVJwhnSCkxzZ1okdHKpeCrpLJklP3OaKwjdlFBHI4df5dk5d6VDOf3J7QnhdGts7Oq63Y-xRgui2WOzqyLo5I1HPpvA_-LDqdQ)
 
